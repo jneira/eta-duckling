@@ -679,9 +679,9 @@ library
                      , extra                 >= 1.4.10 && < 1.7
                      , hashable              >= 1.2.4.0 && < 1.3
                      , regex-base            >= 0.93.2 && < 0.94
-                     , regex-pcre            >= 0.94.4 && < 0.95
+                     , regex-pcre-builtin    >= 0.94.4 && < 0.95
                      , text                  >= 1.2.2.1 && < 1.3
-                     , text-show             >= 2.1.2 && < 3.7
+                     , text-show             >= 2.1.2 && < 3.9
                      , time                  >= 1.5.0.1 && < 1.9
                      , timezone-series       >= 0.1.5.1 && < 0.2
                      , unordered-containers  >= 0.2.7.2 && < 0.3
@@ -937,6 +937,9 @@ executable duckling-regen-exe
                      , unordered-containers
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings
+  if impl(eta)
+    -- Due to haskell-src-exts
+    buildable: False
 
 executable duckling-example-exe
   main-is:             ExampleMain.hs
@@ -960,7 +963,8 @@ executable duckling-example-exe
                      , unordered-containers
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings
-
+  if impl(eta)
+    buildable: False
 executable custom-dimension-example
   main-is:             CustomDimensionExample.hs
   hs-source-dirs:      exe

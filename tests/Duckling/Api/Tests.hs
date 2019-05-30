@@ -8,6 +8,7 @@
 
 {-# LANGUAGE NoRebindableSyntax #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE FlexibleContexts #-}
 
 module Duckling.Api.Tests
   ( tests

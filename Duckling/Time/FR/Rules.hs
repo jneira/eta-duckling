@@ -768,8 +768,8 @@ ruleEnSemaine = Rule
       interval TTime.Open (dayOfWeek 1) (dayOfWeek 5)
   }
 
-ruleDdmm :: Rule
-ruleDdmm = Rule
+ruleDdMmSlash :: Rule
+ruleDdMmSlash = Rule
   { name = "dd/-mm"
   , pattern =
     [ regex "(3[01]|[12]\\d|0?[1-9])[/-](1[0-2]|0?[1-9])"
@@ -1646,8 +1646,8 @@ ruleMaintenant = Rule
   , prod = \_ -> tt $ cycleNth TG.Second 0
   }
 
-ruleDdmmyyyy :: Rule
-ruleDdmmyyyy = Rule
+ruleDdMmYyyySlash :: Rule
+ruleDdMmYyyySlash = Rule
   { name = "dd/-mm/-yyyy"
   , pattern =
     [ regex "(3[01]|[12]\\d|0?[1-9])[/-](1[0-2]|0?[1-9])[-/](\\d{2,4})"
@@ -1960,8 +1960,8 @@ rules =
   , ruleDdMm
   , ruleDdMmYyyy
   , ruleDdddMonthinterval
-  , ruleDdmm
-  , ruleDdmmyyyy
+  , ruleDdMmSlash
+  , ruleDdMmYyyySlash
   , ruleDeDatetimeDatetimeInterval
   , ruleDeTimeofdayTimeofdayInterval
   , ruleDemain

@@ -26,8 +26,8 @@ import Duckling.Types
 import qualified Duckling.Time.Types as TTime
 import qualified Duckling.TimeGrain.Types as TG
 
-ruleSHourmintimeofday :: Rule
-ruleSHourmintimeofday = Rule
+ruleSHourminTimeofday :: Rule
+ruleSHourminTimeofday = Rule
   { name = "às <hour-min>(time-of-day)"
   , pattern =
     [ regex "(à|a)s?"
@@ -223,8 +223,8 @@ ruleEsteCycle = Rule
       _ -> Nothing
   }
 
-ruleSHourminTimeofday :: Rule
-ruleSHourminTimeofday = Rule
+ruleSHourminIsnotlatentTimeofday :: Rule
+ruleSHourminIsnotlatentTimeofday = Rule
   { name = "às <hour-min> <time-of-day>"
   , pattern =
     [ regex "(à|a)s"
@@ -1463,7 +1463,7 @@ rules =
   , ruleProximasNCycle
   , ruleRightNow
   , ruleSHourminTimeofday
-  , ruleSHourmintimeofday
+  , ruleSHourminIsnotlatentTimeofday
   , ruleSTimeofday
   , ruleSeason
   , ruleSeason2
