@@ -56,15 +56,16 @@ import qualified Duckling.Dimensions.TR as TRDimensions
 import qualified Duckling.Dimensions.UK as UKDimensions
 import qualified Duckling.Dimensions.VI as VIDimensions
 import qualified Duckling.Dimensions.ZH as ZHDimensions
+import Debug.Trace
 
 allDimensions :: Lang -> [Some Dimension]
 allDimensions lang = CommonDimensions.allDimensions ++ langDimensions lang
 
 -- | Augments `targets` with all dependent dimensions.
 explicitDimensions :: HashSet (Some Dimension) -> HashSet (Some Dimension)
-explicitDimensions targets = HashSet.union targets deps
+explicitDimensions targets = traceShow targets $ HashSet.union targets deps
   where
-    deps = HashSet.unions . map dependents $ HashSet.toList targets
+    deps = HashSet.unions . map dependents $ [This Numeral]-- HashSet.toList targets
 
 -- | Ordinal depends on Numeral for JA, KO, and ZH.
 dependents :: Some Dimension -> HashSet (Some Dimension)
